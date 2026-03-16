@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA_ARCHIVE | JARED DOUVILLE</title>
+    <style>
+        :root {
+            --hacker-green: #00ff41;
+            --hacker-red: #ff3131;
+            --glass-bg: rgba(0, 0, 0, 0.9);
+        }
+
+        body, html {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            color: var(--hacker-green);
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 255, 65, 0.02) 50%), black;
+            background-size: 100% 4px;
+        }
+
+        /* --- NAVIGATION (Consistent with Index) --- */
+        .header-ui {
+            position: fixed;
+            top: 0; width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr auto 1.2fr;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 100;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid var(--hacker-green);
+            box-shadow: 0 4px 20px rgba(0, 255, 65, 0.3);
+            box-sizing: border-box;
+        }
+
+        .logo-area h1 { margin: 0; font-size: 1.6rem; letter-spacing: 4px; text-shadow: 0 0 10px var(--hacker-green); }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-btn {
+            text-decoration: none; padding: 10px 25px; color: var(--hacker-green);
+            border: 1px solid var(--hacker-green); border-radius: 4px; text-transform: uppercase;
+            letter-spacing: 2px; transition: all 0.3s;
+        }
+        .nav-btn:hover, .nav-btn.active { background: var(--hacker-green); color: #000; box-shadow: 0 0 20px var(--hacker-green); }
+
+        /* --- BLOG LAYOUT --- */
+        .blog-wrapper {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .posts-container { display: flex; flex-direction: column; gap: 30px; }
+
+        .blog-card {
+            background: rgba(0, 20, 0, 0.6);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            padding: 25px;
+            position: relative;
+            transition: 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            border-color: var(--hacker-green);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            transform: translateX(5px);
+        }
+
+        .blog-card::before {
+            content: "RECORD_ID: " attr(data-id);
+            font-size: 10px;
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .post-date { font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+        .post-title { font-size: 1.5rem; color: #fff; margin: 0 0 15px 0; text-transform: uppercase; }
+        .post-excerpt { line-height: 1.6; opacity: 0.8; }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--hacker-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .read-more:hover { text-decoration: underline; }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            padding: 20px;
+            background: rgba(0, 5, 0, 0.9);
+            height: fit-content;
+        }
+
+        .sidebar h3 { border-bottom: 1px solid var(--hacker-green); padding-bottom: 10px; font-size: 1.1rem; }
+
+        .category-list { list-style: none; padding: 0; }
+        .category-list li { padding: 8px 0; border-bottom: 1px solid rgba(0, 255, 65, 0.1); transition: 0.2s; }
+        .category-list li:hover { color: #fff; padding-left: 5px; }
+
+        .sys-logs {
+            font-size: 11px;
+            color: #555;
+            margin-top: 30px;
+            height: 150px;
+            overflow-y: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header-ui">
+    <div class="logo-area"><h1>JARED DOUVILLE</h1></div>
+    <nav class="nav-menu">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="blog.html" class="nav-btn active">Blog</a>
+        <a href="resume.html" class="nav-btn">Resume</a>
+        <a href="tools.html" class="nav-btn">Tools</a>
+    </nav>
+    <div style="visibility: hidden;">Spacer</div>
+</header>
+
+<div class="blog-wrapper">
+    <main class="posts-container">
+        
+        <article class="blog-card" data-id="001-X">
+            <div class="post-date">2026.03.12 // 02:00 AM</div>
+            <h2 class="post-title">Bypassing Firewalls with Session_V3</h2>
+            <p class="post-excerpt">In this log, we examine the evolution of packet injection techniques and how the V3 architecture handles encrypted handshakes in high-latency environments...</p>
+            <a href="#" class="read-more">> ACCESS_FULL_FILE</a>
+        </article>
+
+        <article class="blog-card" data-id="002-Y">
+            <div class="post-date">2026.03.10 // 11:45 PM</div>
+            <h2 class="post-title">The Future of Decentralized Nodes</h2>
+            <p class="post-excerpt">Blockchain is moving beyond currency. We look at how P2P networks are becoming the backbone of a truly private internet infrastructure...</p>
+            <a href="#" class="read-more">> ACCESS_FULL_FILE</a>
+        </article>
+
+        <article class="blog-card" data-id="003-Z">
+            <div class="post-date">2026.03.05 // 09:12 AM</div>
+            <h2 class="post-title">Zero-Day Vulnerabilities in Legacy Systems</h2>
+            <p class="post-excerpt">Old hardware never dies, it just gets exploited. A deep dive into why 1990s server architecture is still a goldmine for security researchers...</p>
+            <a href="#" class="read-more">> ACCESS_FULL_FILE</a>
+        </article>
+
+    </main>
+
+    <aside class="sidebar">
+        <h3>[ ARCHIVE_CATEGORIES ]</h3>
+        <ul class="category-list">
+            <li>/security_protocols</li>
+            <li>/crypto_analysis</li>
+            <li>/fullstack_dev</li>
+            <li>/hardware_hacking</li>
+        </ul>
+
+        <h3>[ SYSTEM_STATUS ]</h3>
+        <div class="sys-logs" id="log-window">
+            [INFO] Indexing posts...<br>
+            [OK] SSL encryption active.<br>
+            [INFO] User session authenticated.<br>
+            [WARN] Unrecognized IP detected in logs.<br>
+        </div>
+    </aside>
+</div>
+
+<script>
+    // System Log Auto-Type for Sidebar
+    const logs = [
+        "[INFO] Fetching archive metadata...",
+        "[OK] Data stream synchronized.",
+        "[INFO] Re-indexing filesystem...",
+        "[WARN] Memory leak detected in /tmp",
+        "[OK] Connection stable."
+    ];
+    
+    function addLog() {
+        const logWindow = document.getElementById('log-window');
+        const newLog = logs[Math.floor(Math.random() * logs.length)];
+        logWindow.innerHTML += newLog + "<br>";
+        if (logWindow.innerHTML.split('<br>').length > 10) {
+            logWindow.innerHTML = logWindow.innerHTML.split('<br>').slice(1).join('<br>');
+        }
+    }
+    
+    setInterval(addLog, 3000);
+</script>
+
+</body>
+</html>
