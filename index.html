@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARED DOUVILLE | SESSION_V3</title>
+    <style>
+        :root {
+            --hacker-green: #00ff41;
+            --hacker-red: #ff3131;
+            --glass-bg: rgba(0, 0, 0, 0.85);
+        }
+
+        body, html {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            color: var(--hacker-green);
+        }
+
+        /* --- NEON HEADER --- */
+        .header-ui {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr auto 1.2fr;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 100;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid var(--hacker-green);
+            box-shadow: 0 4px 20px rgba(0, 255, 65, 0.3);
+            box-sizing: border-box;
+        }
+
+        .logo-area h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--hacker-green);
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--hacker-green);
+            font-weight: 900;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 0.85rem;
+            color: var(--hacker-green);
+            background-color: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--hacker-green);
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px var(--hacker-green);
+        }
+
+        .nav-btn:hover {
+            background

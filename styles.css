@@ -1,0 +1,182 @@
+:root {
+    --hacker-green: #00ff41;
+    --hacker-red: #ff3131;
+    --glass-bg: rgba(0, 0, 0, 0.85);
+}
+
+body, html {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    color: var(--hacker-green);
+}
+
+/* --- ENHANCED NEON HEADER --- */
+.header-ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr auto 1.2fr; /* Balanced spacing */
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 100;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px); /* Blurs content behind the nav */
+    border-bottom: 2px solid var(--hacker-green);
+    box-shadow: 0 4px 20px rgba(0, 255, 65, 0.3);
+    box-sizing: border-box;
+}
+
+.logo-area h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--hacker-green);
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px var(--hacker-green);
+    font-weight: 900;
+}
+
+/* --- THE GLITCH BUTTONS --- */
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 0.85rem;
+    color: var(--hacker-green);
+    background-color: rgba(0, 255, 65, 0.05);
+    border: 1px solid var(--hacker-green);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 0 5px var(--hacker-green);
+}
+
+.nav-btn:hover {
+    background-color: var(--hacker-green);
+    color: #000;
+    box-shadow: 0 0 25px var(--hacker-green), inset 0 0 10px #000;
+    transform: translateY(-2px);
+}
+
+/* Moving Light Beam Effect */
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.4s;
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-spacer { visibility: hidden; }
+
+/* --- TERMINAL SCREENS & WORKSPACE --- */
+.workspace {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Deep radial gradient for atmosphere */
+    background: radial-gradient(circle at 50% 50%, #0d1f0d 0%, #000 90%);
+}
+
+.monitor-row {
+    display: flex;
+    gap: 30px;
+    z-index: 5;
+    margin-top: 40px;
+}
+
+.screen {
+    width: 340px;
+    height: 240px;
+    background: #020202;
+    border: 1px solid #1a1a1a;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 1), inset 0 0 20px rgba(0, 255, 65, 0.05);
+}
+
+/* CRT Scanline & Flicker Effect */
+.screen::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 255, 65, 0.03) 50%);
+    background-size: 100% 3px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.code-scroll {
+    color: var(--hacker-green);
+    font-size: 10px;
+    line-height: 1.4;
+    white-space: pre;
+    padding: 12px;
+    animation: scroll-up 25s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes scroll-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+}
+
+@keyframes scroll-crypto {
+    0% { transform: translateY(20%); }
+    100% { transform: translateY(-100%); }
+}
+
+/* --- THE CENTER IMAGE --- */
+.me-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 82vh; 
+    z-index: 15;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.5));
+    animation: breathe 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+    50% { transform: translateX(-50%) scale(1.015); opacity: 1; }
+}
+
+/* Glitch Animation for Button Clicks */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); filter: hue-rotate(90deg); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); filter: hue-rotate(-90deg); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.nav-btn:active {
+    animation: glitch 0.2s linear;
+}
