@@ -205,7 +205,7 @@ section {
   border-radius: 0; /* Square edges for hacker feel */
   background: rgba(0, 20, 0, 0.8);
   border: 1px solid var(--c-border);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
