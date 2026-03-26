@@ -241,6 +241,201 @@
             opacity: 0.78;
         }
 
+        .btc-sidebar-card {
+            margin-top: 24px;
+            padding: 14px;
+            border: 1px solid rgba(0, 255, 65, 0.35);
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: inset 0 0 18px rgba(0, 255, 65, 0.08);
+        }
+
+        .btc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .btc-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .btc-header-right {
+            text-align: right;
+        }
+
+        .token-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #111;
+            font-weight: 900;
+            background: linear-gradient(145deg, #f7931a, #ffcf72);
+            box-shadow: 0 0 16px rgba(247, 147, 26, 0.35);
+            flex-shrink: 0;
+        }
+
+        .hdr__sym {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff4d2;
+            letter-spacing: 1px;
+        }
+
+        .hdr__name {
+            font-size: 0.68rem;
+            color: #b8ffca;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background: var(--hacker-green);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+            animation: live-pulse 1.2s infinite ease-in-out;
+        }
+
+        .price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff4d2;
+            letter-spacing: 1px;
+        }
+
+        .delta {
+            margin-top: 4px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .up {
+            color: var(--hacker-green);
+        }
+
+        .down {
+            color: var(--hacker-red);
+        }
+
+        .tf-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .tf-btn {
+            border: 1px solid rgba(0, 255, 65, 0.24);
+            background: rgba(0, 255, 65, 0.05);
+            color: #d8ffe4;
+            padding: 6px 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font: inherit;
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+        }
+
+        .tf-btn:hover,
+        .tf-btn.is-active {
+            background: rgba(0, 255, 65, 0.18);
+            color: #041408;
+            border-color: var(--hacker-green);
+        }
+
+        .chart-wrap {
+            position: relative;
+            height: 170px;
+            border: 1px solid rgba(0, 255, 65, 0.24);
+            background:
+                linear-gradient(rgba(0, 255, 65, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.06) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(0, 255, 65, 0.06), rgba(0, 0, 0, 0.3));
+            background-size: 100% 34px, 40px 100%, 100% 100%;
+            overflow: hidden;
+        }
+
+        .chart-wrap svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .crosshair-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.35);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .crosshair-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: var(--hacker-green);
+            box-shadow: 0 0 14px rgba(0, 255, 65, 0.75);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .tooltip {
+            position: absolute;
+            min-width: 90px;
+            padding: 8px 10px;
+            border: 1px solid rgba(0, 255, 65, 0.28);
+            background: rgba(0, 0, 0, 0.92);
+            color: #e9fff0;
+            font-size: 0.68rem;
+            line-height: 1.35;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, calc(-100% - 12px));
+            box-shadow: 0 0 14px rgba(0, 255, 65, 0.12);
+        }
+
+        .tooltip__price {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #fff6cf;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .stat__label {
+            margin-bottom: 4px;
+            color: #b8ffca;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat__val {
+            color: #e8fff0;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
         .content-grid {
             grid-area: main;
             display: grid;
@@ -467,7 +662,18 @@
             }
         }
 
-        @media (max-width: 900px) {
+        @keyframes live-pulse {
+            0%, 100% {
+                transform: scale(0.9);
+                opacity: 0.75;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+        }
+
+@media (max-width: 900px) {
             body {
                 grid-template-columns: 1fr;
                 grid-template-rows: 90px auto 1fr 80px;
@@ -488,6 +694,37 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .avatar-image {
+                max-width: 200px;
+                margin: 0 auto 20px;
+            }
+        }
+
+        .about-section {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        .avatar-image {
+            flex: 0 0 200px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--hacker-green);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .about-text {
+            flex: 1;
         }
     </style>
 </head>
@@ -509,39 +746,83 @@
     <aside class="sidebar">
         <h2>Sidebar</h2>
         <nav class="sidebar-links" aria-label="Sidebar">
-            <a href="#content-1">Overview</a>
-            <a href="#content-2">Reports</a>
-            <a href="#content-3">Settings</a>
+            <a href="#about">About</a>
         </nav>
 
-        <section class="attack-map-card" aria-label="Live cyber attacks map">
-            <h3>Live Cyber Attacks</h3>
-            <div class="attack-map">
-                <span class="attack-node hot node-1"></span>
-                <span class="attack-ping ping-1"></span>
-                <span class="attack-node node-2"></span>
-                <span class="attack-ping ping-2"></span>
-                <span class="attack-node hot node-3"></span>
-                <span class="attack-ping ping-3"></span>
-                <span class="attack-node node-4"></span>
-                <span class="attack-ping ping-4"></span>
+        <section class="btc-sidebar-card" aria-label="Bitcoin live chart">
+            <div class="btc-header">
+                <div class="btc-header-left">
+                    <div class="token-icon">B</div>
+                    <div>
+                        <div class="hdr__sym">BTC</div>
+                        <div class="hdr__name">Bitcoin <span class="live-dot"></span>Live</div>
+                    </div>
+                </div>
+                <div class="btc-header-right">
+                    <div class="price" id="priceEl">$71,842</div>
+                    <div class="delta up" id="deltaEl">▲ +2.84%</div>
+                </div>
+            </div>
 
-                <span class="attack-path path-1"></span>
-                <span class="attack-path path-2"></span>
-                <span class="attack-path path-3"></span>
-            </div>
-            <div class="attack-stats">
-                <div class="attack-stat">
-                    <strong>142</strong>
-                    <span>Events / Min</span>
-                </div>
-                <div class="attack-stat">
-                    <strong>09</strong>
-                    <span>Hot Nodes</span>
+            <div class="tf-row" id="tfRow"></div>
+
+            <div class="chart-wrap" id="chartWrap">
+                <svg id="chartSvg" viewBox="0 0 680 200" preserveAspectRatio="none"></svg>
+                <div class="crosshair-line" id="crosshairLine"></div>
+                <div class="crosshair-dot" id="crosshairDot"></div>
+                <div class="tooltip" id="tooltip">
+                    <div class="tooltip__price" id="ttPrice"></div>
+                    <div id="ttTime"></div>
                 </div>
             </div>
-            <div class="attack-footnote">Animated live-style display</div>
+
+            <div class="stats">
+                <div>
+                    <div class="stat__label">24h High</div>
+                    <div class="stat__val up" id="statHigh">—</div>
+                </div>
+                <div>
+                    <div class="stat__label">24h Low</div>
+                    <div class="stat__val down" id="statLow">—</div>
+                </div>
+                <div>
+                    <div class="stat__label">Volume</div>
+                    <div class="stat__val" id="statVol">—</div>
+                </div>
+                <div>
+                    <div class="stat__label">Mkt Cap</div>
+                    <div class="stat__val" id="statMcap">—</div>
+                </div>
+            </div>
         </section>
+
+        <div class="social-row" aria-label="Social links">
+            <a class="social-icon-btn" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.72.08-.72 1.2.09 1.84 1.23 1.84 1.23 1.08 1.84 2.82 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.46-2.38 1.23-3.22-.12-.3-.53-1.53.12-3.18 0 0 1-.32 3.3 1.23a11.32 11.32 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.88.13 3.18.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.65-5.48 5.95.43.38.82 1.1.82 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/>
+                </svg>
+            </a>
+            <a class="social-icon-btn" href="https://www.linkedin.com/in/jared-douville/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5A2.49 2.49 0 1 0 5 8.48 2.49 2.49 0 0 0 4.98 3.5ZM3 9h4v12H3Zm7 0h3.83v1.64h.05c.53-1 1.84-2.05 3.79-2.05C21.73 8.59 22 11.03 22 14.2V21h-4v-6.02c0-1.44-.03-3.29-2-3.29-2 0-2.3 1.56-2.3 3.18V21h-4Z"/>
+                </svg>
+            </a>
+            <a class="social-icon-btn" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-6.42L6.43 22H3.3l7.24-8.27L.8 2h6.4l4.43 5.85L18.9 2Zm-1.1 18h1.73L6.26 3.9H4.4L17.8 20Z"/>
+                </svg>
+            </a>
+            <a class="social-icon-btn hackerone-icon" href="https://hackerone.com/" target="_blank" rel="noopener noreferrer" aria-label="HackerOne">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 2h4v8h4V2h4v20h-4v-8h-4v8H6V2Zm4 10v-2h4v2h-4Z"/>
+                </svg>
+            </a>
+            <a class="social-icon-btn medium-icon" href="https://medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2 6.5c.02-.2-.05-.4-.2-.54L.24 4.08V3.75h5.03l3.88 8.5 3.42-8.5h4.8v.33l-1.33 1.27c-.12.09-.18.25-.16.4v12.5c-.02.16.04.31.16.41l1.3 1.26v.33h-6.54v-.33l1.34-1.3c.13-.13.13-.17.13-.4V8.12l-3.72 9.45h-.5L3.7 8.12v8.54c-.04.31.06.62.28.84l1.74 2.1v.33H1v-.33l1.74-2.1c.21-.22.3-.53.25-.84V6.5Z"/>
+                </svg>
+            </a>
+        </div>
     </aside>
 
     <main class="content-grid">
@@ -594,52 +875,340 @@
             </div>
         </section>
 
-        <section class="content-panel" id="content-1">
-            <h2>Content 1</h2>
-            <p>Hi my names jared Douville im from Calgary, Canada and im help companys securee their assets , against the ever growing landscape of cyber security ,  I wrote an open source Phishing tool for running real world phishing test on a compyanys employees. .</p>
-            <div class="social-row" aria-label="Social links">
-                <a class="social-icon-btn" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.72.08-.72 1.2.09 1.84 1.23 1.84 1.23 1.08 1.84 2.82 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.46-2.38 1.23-3.22-.12-.3-.53-1.53.12-3.18 0 0 1-.32 3.3 1.23a11.32 11.32 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.88.13 3.18.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.65-5.48 5.95.43.38.82 1.1.82 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/>
-                    </svg>
-                </a>
-                <a class="social-icon-btn" href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4.98 3.5A2.49 2.49 0 1 0 5 8.48 2.49 2.49 0 0 0 4.98 3.5ZM3 9h4v12H3Zm7 0h3.83v1.64h.05c.53-1 1.84-2.05 3.79-2.05C21.73 8.59 22 11.03 22 14.2V21h-4v-6.02c0-1.44-.03-3.29-2-3.29-2 0-2.3 1.56-2.3 3.18V21h-4Z"/>
-                    </svg>
-                </a>
-                <a class="social-icon-btn" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-6.42L6.43 22H3.3l7.24-8.27L.8 2h6.4l4.43 5.85L18.9 2Zm-1.1 18h1.73L6.26 3.9H4.4L17.8 20Z"/>
-                    </svg>
-                </a>
-                <a class="social-icon-btn hackerone-icon" href="https://hackerone.com/" target="_blank" rel="noopener noreferrer" aria-label="HackerOne">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6 2h4v8h4V2h4v20h-4v-8h-4v8H6V2Zm4 10v-2h4v2h-4Z"/>
-                    </svg>
-                </a>
-                <a class="social-icon-btn medium-icon" href="https://medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M2 6.5c.02-.2-.05-.4-.2-.54L.24 4.08V3.75h5.03l3.88 8.5 3.42-8.5h4.8v.33l-1.33 1.27c-.12.09-.18.25-.16.4v12.5c-.02.16.04.31.16.41l1.3 1.26v.33h-6.54v-.33l1.34-1.3c.13-.13.13-.17.13-.4V8.12l-3.72 9.45h-.5L3.7 8.12v8.54c-.04.31.06.62.28.84l1.74 2.1v.33H1v-.33l1.74-2.1c.21-.22.3-.53.25-.84V6.5Z"/>
-                    </svg>
-                </a>
+        <section class="about-section content-panel" id="about">
+            <img class="avatar-image" src="avatar.jpg" alt="Jared Douville avatar">
+            <div class="about-text">
+                <h2>About</h2>
+                <p>Hi my names jared Douville im from Calgary, Canada and im help companys securee their assets , against the ever growing landscape of cyber security ,  I wrote an open source Phishing tool for running real world phishing test on a compyanys employees. .</p>
             </div>
-        </section>
-
-        <section class="content-panel" id="content-2">
-            <h2>Content 2</h2>
-            <p>Tools: IPhish.</p>
-            <img class="content-image" src="iphish.png" alt="Screenshot of the IPhish tool">
-        </section>
-
-        <section class="content-panel" id="content-3">
-            <h2>Resume</h2>
-            <p>My Resume :)</p>
         </section>
     </main>
 
     <footer class="footer">
-        Footer
+        <div class="footer-main">
+            <div class="footer-logos">
+                <a href="https://projectdiscovery.io/" title="ProjectDiscovery" aria-label="ProjectDiscovery">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="4" fill="%2300ff41"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle" fill="black">PD</text>
+                    </svg>
+                </a>
+                <a href="#" title="SOC2 Compliant" aria-label="SOC2 Compliant">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" stroke="%2300ff41" stroke-width="2" fill="none"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="10" font-weight="bold" text-anchor="middle" fill="%2300ff41">SOC2</text>
+                    </svg>
+                </a>
+                <a href="#" title="RSA Blackhat" aria-label="RSA Blackhat">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="4" fill="%2300ff41"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="9" font-weight="bold" text-anchor="middle" fill="black">RB</text>
+                    </svg>
+                </a>
+                <a href="#" title="G2" aria-label="G2">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="15" stroke="%2300ff41" stroke-width="2" fill="%2300ff41"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="white">G2</text>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="security.html">Security</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Open Source</h4>
+                    <a href="#">IPhish</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-socials">
+            <a href="tools.html">All tools</a>
+            <a href="resources.html">Resources</a>
+            <a href="blog.html">Blog</a>
+            <a href="https://discord.gg/example" target="_blank" rel="noopener">@JaredDouville</a>
+        </div>
+        <style>
+            .footer { 
+                padding: 40px 24px 24px; 
+                border-top: 2px solid var(--hacker-green); 
+                background: rgba(0,0,0,0.9); 
+            }
+            .footer-main { 
+                display: grid; 
+                grid-template-columns: auto 1fr; 
+                gap: 40px; 
+                max-width: 1200px; 
+                margin: 0 auto 24px auto; 
+            }
+            .footer-logos { 
+                display: flex; 
+                gap: 20px; 
+                flex-wrap: wrap; 
+                align-items: center; 
+            }
+            .footer-logos a { 
+                display: block; 
+                transition: all 0.3s ease; 
+                filter: drop-shadow(0 0 6px rgba(0,255,65,0.4)); 
+            }
+            .footer-logos a:hover svg { 
+                filter: drop-shadow(0 0 16px rgba(0,255,65,1)) brightness(1.3); 
+                transform: scale(1.15) rotate(5deg); 
+            }
+            .footer-columns { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 32px; 
+            }
+            .footer-column h4 { 
+                font-family: 'Courier New', monospace; 
+                font-size: 0.9rem; 
+                color: var(--hacker-green); 
+                margin: 0 0 12px 0; 
+                letter-spacing: 2px; 
+                text-transform: uppercase; 
+                text-shadow: 0 0 6px rgba(0,255,65,0.5); 
+            }
+            .footer-column a { 
+                display: block; 
+                color: #b8ffca; 
+                text-decoration: none; 
+                font-family: 'Courier New', monospace; 
+                font-size: 0.85rem; 
+                padding: 6px 0; 
+                border-left: 2px solid transparent; 
+                transition: all 0.2s; 
+            }
+            .footer-column a:hover { 
+                color: var(--hacker-green); 
+                border-left-color: var(--hacker-green); 
+                padding-left: 12px; 
+                text-shadow: 0 0 4px rgba(0,255,65,0.6); 
+            }
+            .footer-socials { 
+                max-width: 1200px; 
+                margin: 0 auto; 
+                padding: 0 20px; 
+                display: flex; 
+                justify-content: center; 
+                gap: 24px; 
+                flex-wrap: wrap; 
+                border-top: 1px solid rgba(0,255,65,0.2); 
+                padding-top: 20px; 
+            }
+            .footer-socials a { 
+                color: var(--hacker-green); 
+                text-decoration: none; 
+                font-family: 'Courier New', monospace; 
+                font-size: 0.9rem; 
+                letter-spacing: 1px; 
+                text-transform: uppercase; 
+                padding: 8px 16px; 
+                border: 1px solid transparent; 
+                transition: all 0.3s; 
+                position: relative; 
+            }
+            .footer-socials a:hover { 
+                background: rgba(0,255,65,0.1); 
+                border-color: var(--hacker-green); 
+                box-shadow: 0 0 12px rgba(0,255,65,0.4); 
+                transform: translateY(-2px); 
+            }
+            @media (max-width: 768px) { 
+                .footer-main { grid-template-columns: 1fr; text-align: center; gap: 24px; } 
+                .footer-columns { grid-template-columns: 1fr; } 
+                .footer-socials { flex-direction: column; gap: 12px; align-items: center; } 
+            }
+        </style>
     </footer>
+    <script>
+        (function () {
+            const seriesMap = {
+                "1H": { start: 71620, points: 40, stepMinutes: 2, volatility: 65 },
+                "24H": { start: 70940, points: 48, stepMinutes: 30, volatility: 120 },
+                "7D": { start: 68240, points: 42, stepMinutes: 240, volatility: 220 },
+                "1M": { start: 64180, points: 32, stepMinutes: 1440, volatility: 420 }
+            };
+
+            const tfRow = document.getElementById("tfRow");
+            const chartSvg = document.getElementById("chartSvg");
+            const chartWrap = document.getElementById("chartWrap");
+            const priceEl = document.getElementById("priceEl");
+            const deltaEl = document.getElementById("deltaEl");
+            const statHigh = document.getElementById("statHigh");
+            const statLow = document.getElementById("statLow");
+            const statVol = document.getElementById("statVol");
+            const statMcap = document.getElementById("statMcap");
+            const crosshairLine = document.getElementById("crosshairLine");
+            const crosshairDot = document.getElementById("crosshairDot");
+            const tooltip = document.getElementById("tooltip");
+            const ttPrice = document.getElementById("ttPrice");
+            const ttTime = document.getElementById("ttTime");
+
+            if (!tfRow || !chartSvg || !chartWrap) {
+                return;
+            }
+
+            let activeRange = "24H";
+            let activeSeries = [];
+
+            function generateSeries(config) {
+                const now = new Date();
+                const data = [];
+                let current = config.start;
+
+                for (let i = config.points - 1; i >= 0; i -= 1) {
+                    const drift = Math.sin(i / 3.4) * config.volatility * 0.4;
+                    const wave = Math.cos(i / 2.6) * config.volatility * 0.22;
+                    const jitter = (((i * 37) % 17) - 8) * (config.volatility * 0.06);
+                    current += drift + wave + jitter;
+                    data.push({
+                        time: new Date(now.getTime() - (config.points - 1 - i) * config.stepMinutes * 60000),
+                        value: Math.round(current)
+                    });
+                }
+
+                return data.reverse();
+            }
+
+            function formatCurrency(value) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0
+                }).format(value);
+            }
+
+            function formatCompact(value) {
+                return new Intl.NumberFormat("en-US", {
+                    notation: "compact",
+                    maximumFractionDigits: 2
+                }).format(value);
+            }
+
+            function formatTime(date) {
+                const options = activeRange === "1H" || activeRange === "24H"
+                    ? { hour: "numeric", minute: "2-digit" }
+                    : { month: "short", day: "numeric" };
+
+                return new Intl.DateTimeFormat("en-US", options).format(date);
+            }
+
+            function buildButtons() {
+                tfRow.innerHTML = "";
+                Object.keys(seriesMap).forEach((range) => {
+                    const button = document.createElement("button");
+                    button.className = "tf-btn" + (range === activeRange ? " is-active" : "");
+                    button.type = "button";
+                    button.textContent = range;
+                    button.addEventListener("click", function () {
+                        activeRange = range;
+                        draw();
+                    });
+                    tfRow.appendChild(button);
+                });
+            }
+
+            function updateSummary(data) {
+                const first = data[0].value;
+                const last = data[data.length - 1].value;
+                const change = ((last - first) / first) * 100;
+                const high = Math.max.apply(null, data.map((point) => point.value));
+                const low = Math.min.apply(null, data.map((point) => point.value));
+                const volume = 18000000000 + (last % 5000) * 125000;
+                const marketCap = last * 19700000;
+
+                priceEl.textContent = formatCurrency(last);
+                deltaEl.textContent = (change >= 0 ? "▲ +" : "▼ ") + Math.abs(change).toFixed(2) + "%";
+                deltaEl.className = "delta " + (change >= 0 ? "up" : "down");
+                statHigh.textContent = formatCurrency(high);
+                statLow.textContent = formatCurrency(low);
+                statVol.textContent = "$" + formatCompact(volume);
+                statMcap.textContent = "$" + formatCompact(marketCap);
+            }
+
+            function draw() {
+                buildButtons();
+                activeSeries = generateSeries(seriesMap[activeRange]);
+                updateSummary(activeSeries);
+
+                const values = activeSeries.map((point) => point.value);
+                const min = Math.min.apply(null, values);
+                const max = Math.max.apply(null, values);
+                const width = 680;
+                const height = 200;
+                const padX = 18;
+                const padY = 14;
+                const usableWidth = width - padX * 2;
+                const usableHeight = height - padY * 2;
+                const range = Math.max(max - min, 1);
+
+                const coords = activeSeries.map((point, index) => {
+                    const x = padX + (index / (activeSeries.length - 1)) * usableWidth;
+                    const y = height - padY - ((point.value - min) / range) * usableHeight;
+                    return { x, y, time: point.time, value: point.value };
+                });
+
+                const linePath = coords.map((point, index) =>
+                    (index === 0 ? "M" : "L") + point.x.toFixed(2) + "," + point.y.toFixed(2)
+                ).join(" ");
+
+                const areaPath = linePath + " L" + coords[coords.length - 1].x.toFixed(2) + "," + (height - padY) +
+                    " L" + coords[0].x.toFixed(2) + "," + (height - padY) + " Z";
+
+                chartSvg.innerHTML = [
+                    "<defs>",
+                    '<linearGradient id="btcStroke" x1="0%" y1="0%" x2="100%" y2="0%">',
+                    '<stop offset="0%" stop-color="#8dffae"></stop>',
+                    '<stop offset="100%" stop-color="#f7931a"></stop>',
+                    "</linearGradient>",
+                    '<linearGradient id="btcFill" x1="0%" y1="0%" x2="0%" y2="100%">',
+                    '<stop offset="0%" stop-color="#00ff41" stop-opacity="0.38"></stop>',
+                    '<stop offset="100%" stop-color="#00ff41" stop-opacity="0.02"></stop>',
+                    "</linearGradient>",
+                    "</defs>",
+                    '<path d="' + areaPath + '" fill="url(#btcFill)" opacity="0.85"></path>',
+                    '<path d="' + linePath + '" fill="none" stroke="url(#btcStroke)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>'
+                ].join("");
+
+                chartWrap.onmousemove = function (event) {
+                    const rect = chartWrap.getBoundingClientRect();
+                    const x = event.clientX - rect.left;
+                    const nearest = coords.reduce(function (best, point) {
+                        return Math.abs(point.x / width * rect.width - x) < Math.abs(best.x / width * rect.width - x) ? point : best;
+                    }, coords[0]);
+
+                    const scaledX = nearest.x / width * rect.width;
+                    const scaledY = nearest.y / height * rect.height;
+
+                    crosshairLine.style.left = scaledX + "px";
+                    crosshairDot.style.left = scaledX + "px";
+                    crosshairDot.style.top = scaledY + "px";
+                    crosshairLine.style.opacity = "1";
+                    crosshairDot.style.opacity = "1";
+
+                    tooltip.style.left = Math.min(Math.max(scaledX, 50), rect.width - 50) + "px";
+                    tooltip.style.top = Math.max(scaledY - 10, 42) + "px";
+                    tooltip.style.opacity = "1";
+                    ttPrice.textContent = formatCurrency(nearest.value);
+                    ttTime.textContent = formatTime(nearest.time);
+                };
+
+                chartWrap.onmouseleave = function () {
+                    crosshairLine.style.opacity = "0";
+                    crosshairDot.style.opacity = "0";
+                    tooltip.style.opacity = "0";
+                };
+            }
+
+            draw();
+            setInterval(draw, 12000);
+        }());
+    </script>
 </body>
 </html>

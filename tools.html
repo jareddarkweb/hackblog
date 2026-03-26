@@ -427,7 +427,146 @@
     </main>
 
     <footer class="footer">
-        Tools Archive Online
+        <div class="footer-main">
+            <div class="footer-logos">
+                <a href="https://projectdiscovery.io/" title="ProjectDiscovery" aria-label="ProjectDiscovery">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="4" fill="%2300ff41"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="12" font-weight="bold" text-anchor="middle" fill="black">PD</text>
+                    </svg>
+                </a>
+                <a href="#" title="SOC2 Compliant" aria-label="SOC2 Compliant">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" stroke="%2300ff41" stroke-width="2" fill="none"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="10" font-weight="bold" text-anchor="middle" fill="%2300ff41">SOC2</text>
+                    </svg>
+                </a>
+                <a href="#" title="RSA Blackhat" aria-label="RSA Blackhat">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="4" fill="%2300ff41"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="9" font-weight="bold" text-anchor="middle" fill="black">RB</text>
+                    </svg>
+                </a>
+                <a href="#" title="G2" aria-label="G2">
+                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="15" stroke="%2300ff41" stroke-width="2" fill="%2300ff41"/>
+                        <text x="16" y="20" font-family="'Courier New', monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="white">G2</text>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="security.html">Security</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Open Source</h4>
+                    <a href="#">IPhish</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-socials">
+            <a href="tools.html">All tools</a>
+            <a href="resources.html">Resources</a>
+            <a href="blog.html">Blog</a>
+            <a href="https://discord.gg/example" target="_blank" rel="noopener">@JaredDouville</a>
+        </div>
+        <style>
+            .footer { 
+                padding: 40px 24px 24px; 
+                border-top: 2px solid var(--hacker-green); 
+                background: rgba(0,0,0,0.9); 
+            }
+            .footer-main { 
+                display: grid; 
+                grid-template-columns: auto 1fr; 
+                gap: 40px; 
+                max-width: 1200px; 
+                margin: 0 auto 24px auto; 
+            }
+            .footer-logos { 
+                display: flex; 
+                gap: 20px; 
+                flex-wrap: wrap; 
+                align-items: center; 
+            }
+            .footer-logos a { 
+                display: block; 
+                transition: all 0.3s ease; 
+                filter: drop-shadow(0 0 6px rgba(0,255,65,0.4)); 
+            }
+            .footer-logos a:hover svg { 
+                filter: drop-shadow(0 0 16px rgba(0,255,65,1)) brightness(1.3); 
+                transform: scale(1.15) rotate(5deg); 
+            }
+            .footer-columns { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 32px; 
+            }
+            .footer-column h4 { 
+                font-family: 'Courier New', monospace; 
+                font-size: 0.9rem; 
+                color: var(--hacker-green); 
+                margin: 0 0 12px 0; 
+                letter-spacing: 2px; 
+                text-transform: uppercase; 
+                text-shadow: 0 0 6px rgba(0,255,65,0.5); 
+            }
+            .footer-column a { 
+                display: block; 
+                color: #b8ffca; 
+                text-decoration: none; 
+                font-family: 'Courier New', monospace; 
+                font-size: 0.85rem; 
+                padding: 6px 0; 
+                border-left: 2px solid transparent; 
+                transition: all 0.2s; 
+            }
+            .footer-column a:hover { 
+                color: var(--hacker-green); 
+                border-left-color: var(--hacker-green); 
+                padding-left: 12px; 
+                text-shadow: 0 0 4px rgba(0,255,65,0.6); 
+            }
+            .footer-socials { 
+                max-width: 1200px; 
+                margin: 0 auto; 
+                padding: 0 20px; 
+                display: flex; 
+                justify-content: center; 
+                gap: 24px; 
+                flex-wrap: wrap; 
+                border-top: 1px solid rgba(0,255,65,0.2); 
+                padding-top: 20px; 
+            }
+            .footer-socials a { 
+                color: var(--hacker-green); 
+                text-decoration: none; 
+                font-family: 'Courier New', monospace; 
+                font-size: 0.9rem; 
+                letter-spacing: 1px; 
+                text-transform: uppercase; 
+                padding: 8px 16px; 
+                border: 1px solid transparent; 
+                transition: all 0.3s; 
+                position: relative; 
+            }
+            .footer-socials a:hover { 
+                background: rgba(0,255,65,0.1); 
+                border-color: var(--hacker-green); 
+                box-shadow: 0 0 12px rgba(0,255,65,0.4); 
+                transform: translateY(-2px); 
+            }
+            @media (max-width: 768px) { 
+                .footer-main { grid-template-columns: 1fr; text-align: center; gap: 24px; } 
+                .footer-columns { grid-template-columns: 1fr; } 
+                .footer-socials { flex-direction: column; gap: 12px; align-items: center; } 
+            }
+        </style>
     </footer>
 </body>
 </html>
