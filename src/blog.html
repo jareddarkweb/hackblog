@@ -295,17 +295,36 @@
             
             data.items.slice(0, 6).forEach((item, index) => {
                 const pubDate = new Date(item.pubDate);
-                const excerpt = (item.description || item.contentSnippet || '').replace(/<[^>]*>/g, '').substring(0, 160) + '...';
+                const rawText = (item.description || item.contentSnippet || '').replace(/<[^>]*>/g, '').replace(/<[^>]*/g, '');
+                const excerpt = rawText.substring(0, 160) + '...';
                 
                 const card = document.createElement('article');
                 card.className = 'blog-card';
                 card.setAttribute('data-id', String(index + 1).padStart(3, '0'));
-                card.innerHTML = `
-                    <div class="post-date">${pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} // MEDIUM</div>
-                    <h2 class="post-title">${item.title}</h2>
-                    <p class="post-excerpt">${excerpt}</p>
-                    <a href="${item.link}" class="read-more" target="_blank">> READ_ON_MEDIUM</a>
-                `;
+
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'post-date';
+                dateDiv.textContent = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) + ' // MEDIUM';
+
+                const titleEl = document.createElement('h2');
+                titleEl.className = 'post-title';
+                titleEl.textContent = item.title;
+
+                const excerptEl = document.createElement('p');
+                excerptEl.className = 'post-excerpt';
+                excerptEl.textContent = excerpt;
+
+                const link = document.createElement('a');
+                link.href = item.link;
+                link.className = 'read-more';
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = '> READ_ON_MEDIUM';
+
+                card.appendChild(dateDiv);
+                card.appendChild(titleEl);
+                card.appendChild(excerptEl);
+                card.appendChild(link);
                 container.appendChild(card);
             });
             
